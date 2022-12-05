@@ -8,9 +8,9 @@ This is an implementation of Joint Learning Sample Similarity and Correlation Re
 Training MDJL can be done in a few lines. First, all you need to do is prepare the datasets to have the following keys:
     
     {  
-      ``'X': (n,d) observations (dtype = float32),  
+        'X': (n,d) observations (dtype = float32),  
         'y': (n) event times (dtype = float32),  
-        'e': (n) event indicators (dtype = int32)  ``
+        'e': (n) event indicators (dtype = int32)
     }      
  
 
