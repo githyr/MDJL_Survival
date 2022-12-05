@@ -23,12 +23,6 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
-# dataset_dir   AWA/Features   Caltech101-20   Caltech101-all   NUSWIDEOBJ   Reuters  Flower CIFAR
-# data_name   AWA  Caltech20  Caltechall   NUSWIDEOBJ   Reuters  Flower CIFAR
-# num_class   50    20   102   31    6     102  10
-# num_view    6     6     6    5    5    4  3
-
-
 parser.add_argument('--basemodel', default='multiviewNet', help='multiviewNet')
 parser.add_argument('--num_view', type=int, default=3, help='the number of views')
 parser.add_argument('--fea_out', type=int, default=256, help='the dimension of the first linear layer')
