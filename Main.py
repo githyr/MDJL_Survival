@@ -11,7 +11,7 @@ import torch
 import torch.optim as optim
 import prettytable as pt
 
-import models.Network_HAO as MultiviewNet
+import models.Network_main as MultiviewNet
 from networks import NegativeLogLikelihood
 from dataset import GBMDataset
 from utils import read_config
@@ -114,39 +114,4 @@ def train(ini_file):
         print('\rEpoch: {}\tLoss: {:.8f}({:.8f})\tc-index: {:.8f}({:.8f})\tlr: {:g}'.format(
             epoch, train_loss.item(), valid_loss.item(), train_c, valid_c, lr), end='', flush=False)
     return best_c_index
-
-if __name__ == '__main__':
-    # global settings
-    logs_dir = 'logs'
-    models_dir = os.path.join(logs_dir, 'models')
-    if not os.path.exists(models_dir):
-        os.makedirs(models_dir)
-    logger = create_logger(logs_dir)
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    configs_dir = 'configs'
-    params = [
-        ('Simulated Linear', 'linear.ini'),
-        ('Simulated Nonlinear', 'gaussian.ini'),
-        ('WHAS', 'whas.ini'),
-        ('SUPPORT', 'support.ini'),
-        ('METABRIC', 'metabric.ini'),
-        ('Simulated Treatment', 'treatment.ini'),
-        ('Rotterdam & GBSG', 'gbsg.ini')]
-    patience = 50
-    # training
-    headers = []
-    values = []
-    for name, ini_file in params:
-        logger.info('Running {}({})...'.format(name, ini_file))
-        best_c_index = train(os.path.join(configs_dir, ini_file))
-        headers.append(name)
-        values.append('{:.6f}'.format(best_c_index))
-        print('')
-        logger.info("The best valid c-index: {}".format(best_c_index))
-        logger.info('')
-    # prints results
-    tb = pt.PrettyTable()
-    tb.field_names = headers
-    tb.add_row(values)
-    logger.info(tb)
 
