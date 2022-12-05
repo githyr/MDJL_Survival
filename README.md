@@ -5,7 +5,8 @@ This is an implementation of Joint Learning Sample Similarity and Correlation Re
   * Pytorch=1.0.0  
   * Torchvision=0.2.1  
 ## Implementation
-Training MDJL can be done in a few lines. First, all you need to do is prepare the datasets to have the following keys:  
+Training MDJL can be done in a few lines. First, all you need to do is prepare the datasets to have the following keys:
+
 ``
 {   
         'X': (n,d) observations (dtype = float32),   
@@ -13,6 +14,7 @@ Training MDJL can be done in a few lines. First, all you need to do is prepare t
         'e': (n) event indicators (dtype = int32)  
 } 
 ``
+
 You can then evaluate its success on survival data with training set and test set:  
 `` python Main.py ``
 ## Citation
