@@ -14,7 +14,7 @@ Training MDJL can be done in a few lines. First, all you need to do is prepare t
     }      
  
 
-You can then evaluate its success on survival data with training set and test set:  
+You can then evaluate its success on survival data with training set and test set:    
 `` python Main.py ``
 ## Citation
 Joint Learning Sample Similarity and Correlation Representation for Cancer Survival prediction, BMC Bioinformatics.
