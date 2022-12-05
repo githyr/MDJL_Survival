@@ -9,9 +9,13 @@ Training MDJL can be done in a few lines. First, all you need to do is prepare t
 
 ``
 {   
+
         'X': (n,d) observations (dtype = float32),   
+        
         'y': (n) event times (dtype = float32),  
+        
         'e': (n) event indicators (dtype = int32)  
+        
 } 
 ``
 
